@@ -5,52 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اطلس جامع تهران</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-            max-width: 400px;
-        }
-        h1 { font-size: 24px; color: #1a73e8; margin-bottom: 10px; }
-        p { font-size: 16px; margin-bottom: 30px; line-height: 1.6; }
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #1a73e8;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 18px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: background 0.3s;
-        }
-        .btn:hover { background-color: #1557b0; }
-        .footer { margin-top: 50px; font-size: 12px; color: #888; }
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f8f9fa; margin: 0; }
+        .container { text-align: center; padding: 20px; max-width: 400px; }
+        .btn { display: inline-block; padding: 15px 30px; background-color: #1a73e8; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .hint { margin-top: 20px; font-size: 12px; color: #666; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>اطلس جامع تهران</h1>
-        <p>برای مشاهده دقیق‌تر و تعامل با لایه‌های نقشه، لطفاً دکمه زیر را بزنید تا نقشه در گوگل‌مپ باز شود.</p>
+        <p>برای مشاهده صحیح نقشه در اپلیکیشن گوگل‌مپ:</p>
         
-        <!-- آدرس نقشه خود را در قسمت href جایگذاری کنید -->
-        <a href="https://www.google.com/maps/d/edit?mid=1i-9rDiRgkBLmOdE2NIwstIgkhBTpYN8&ll=35.71016903629814%2C51.347655209542154&z=11" class="btn">مشاهده در Google Maps</a>
+        <!-- اصلاح شده برای تلاش در خروج از WebView -->
+        <a href="https://www.google.com/maps/d/edit?mid=1i-9rDiRgkBLmOdE2NIwstIgkhBTpYN8&ll=35.71016903629814%2C51.347655209542154&z=11" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn">
+           باز کردن در Google Maps
+        </a>
+
+        <p class="hint">اگر نقشه باز نشد، روی سه نقطه بالا گوشه صفحه بزنید و <b>Open in Browser</b> را انتخاب کنید.</p>
     </div>
-
-    <div class="footer">توسعه یافته با استانداردهای وب</div>
-
 </body>
 </html>
