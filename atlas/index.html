@@ -5,24 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اطلس جامع تهران</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f8f9fa; }
-        .container { text-align: center; padding: 20px; }
-        .btn { display: inline-block; padding: 15px 30px; background-color: #d32f2f; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background-color: #f0f2f5; 
+            margin: 0; 
+            text-align: center;
+        }
+        .container { 
+            padding: 25px; 
+            background: white; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+            max-width: 320px; 
+        }
+        h1 { color: #1a73e8; font-size: 20px; margin-bottom: 20px; }
+        
+        .btn { 
+            display: block; 
+            width: 100%;
+            padding: 15px; 
+            margin-bottom: 15px;
+            background-color: #d32f2f; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            box-sizing: border-box;
+        }
+        
+        .btn-secondary { background-color: #5f6368; }
+        
+        .hint { font-size: 13px; color: #555; line-height: 1.5; margin-top: 20px; }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>اطلس جامع تهران</h1>
-        <p>برای مشاهده در گوگل‌مپ، دکمه زیر را لمس کنید:</p>
         
+        <!-- دکمه اول: تلاش برای باز کردن در مرورگر اصلی -->
         <a href="intent://www.google.com/maps/d/viewer?mid=GAPGPTMASKTOKEN22lh4ci56kxX0X#Intent;scheme=https;package=com.android.chrome;end" class="btn">
-			مشاهده نقشه (در مرورگر کروم)
-		</a>
-
-        <p style="font-size: 12px; color: #555; margin-top: 20px;">
-            اگر باز نشد، روی سه‌نقطه مرورگر بزنید و <b>Open in Browser</b> را انتخاب کنید.
+            مشاهده در مرورگر (پیشنهادی)
+        </a>
+        
+        <!-- دکمه دوم: لینک مستقیم برای شرایطی که Intent مسدود شده است -->
+        <a href="https://www.google.com/maps/d/viewer?mid=GAPGPTMASKTOKEN22lh4ci56kxX0X" class="btn btn-secondary">
+            مشاهده مستقیم
+        </a>
+        
+        <p class="hint">
+            اگر نقشه باز نشد، روی سه‌نقطه بالای صفحه بزنید و گزینه <b>Open in Browser</b> را انتخاب کنید.
         </p>
     </div>
+
 </body>
 </html>
-
