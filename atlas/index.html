@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اطلس جامع تهران</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Vazirmatn", Tahoma, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0b1120 0%, #1e293b 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 24px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 32px 24px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.15);
+            border-top: 4px solid #38bdf8;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        h2 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #f8fafc; }
+        p { font-size: 14px; color: #94a3b8; line-height: 1.6; margin-bottom: 24px; }
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px 20px;
+            background: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #1d4ed8; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="spinner"></div>
+        <h2>در حال انتقال به نقشه اطلس...</h2>
+        <p>لطفاً چند لحظه صبر کنید تا نقشه در مرورگر دستگاه شما باز شود.</p>
+        <a id="target-link" class="btn" href="https://B2n.ir/TehranAtlas">ورود مستقیم به نقشه</a>
+    </div>
+
+    <script>
+        const targetHostAndPath = "B2n.ir/TehranAtlas";
+        const fullTargetUrl = "https://" + targetHostAndPath;
+
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+        const isAndroid = /android/i.test(ua);
+
+        if (isAndroid) {
+            // ساخت اینتنت اختصاصی برای هدایت مستقیم به Google Chrome در اندروید
+            const intentUrl = `intent://${targetHostAndPath}#Intent;scheme=https;package=com.android.chrome;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;end`;
+            
+            // اجرای خودکار خروج از وب‌ویو
+            window.location.href = intentUrl;
+
+            // پشتیبان در صورت عدم پاسخگویی اینتنت
+            setTimeout(() => {
+                window.location.href = fullTargetUrl;
+            }, 1200);
+        } else {
+            // برای سیستم‌عامل‌های دیگر (آیفون/iOS، مک، ویندوز)
+            setTimeout(() => {
+                window.location.href = fullTargetUrl;
+            }, 400);
+        }
+    </script>
+</body>
+</html>
