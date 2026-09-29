@@ -5,40 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اطلس جامع تهران</title>
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            background-color: #f0f2f5; 
-            margin: 0; 
-            text-align: center;
-        }
-        .container { 
-            padding: 25px; 
-            background: white; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
-            max-width: 320px; 
-        }
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; margin: 0; text-align: center; }
+        .container { padding: 25px; background: white; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 320px; }
         h1 { color: #1a73e8; font-size: 20px; margin-bottom: 20px; }
-        
-        .btn { 
-            display: block; 
-            width: 100%;
-            padding: 15px; 
-            margin-bottom: 15px;
-            background-color: #d32f2f; 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 8px; 
-            font-weight: bold; 
-            box-sizing: border-box;
-        }
-        
+        .btn { display: block; width: 100%; padding: 15px; background-color: #d32f2f; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; box-sizing: border-box; margin-bottom: 15px; }
         .btn-secondary { background-color: #5f6368; }
-        
         .hint { font-size: 13px; color: #555; line-height: 1.5; margin-top: 20px; }
     </style>
 </head>
@@ -47,20 +18,23 @@
     <div class="container">
         <h1>اطلس جامع تهران</h1>
         
-        <!-- دکمه اول: تلاش برای باز کردن در مرورگر اصلی -->
-        <a href="intent://www.google.com/maps/d/viewer?mid=GAPGPTMASKTOKEN22lh4ci56kxX0X#Intent;scheme=https;package=com.android.chrome;end" class="btn">
-            مشاهده در مرورگر (پیشنهادی)
+        <!-- دکمه‌ای که هوشمند است -->
+        <a id="mapLink" href="https://www.google.com/maps/d/viewer?mid=GAPGPTMASKTOKEN22lh4ci56kxX0X" class="btn">
+            مشاهده نقشه
         </a>
         
-        <!-- دکمه دوم: لینک مستقیم برای شرایطی که Intent مسدود شده است -->
-        <a href="https://www.google.com/maps/d/viewer?mid=GAPGPTMASKTOKEN22lh4ci56kxX0X" class="btn btn-secondary">
-            مشاهده مستقیم
-        </a>
-        
-        <p class="hint">
-            اگر نقشه باز نشد، روی سه‌نقطه بالای صفحه بزنید و گزینه <b>Open in Browser</b> را انتخاب کنید.
-        </p>
+        <p class="hint">اگر نقشه باز نشد، روی سه‌نقطه بالای صفحه بزنید و <b>Open in Browser</b> را انتخاب کنید.</p>
     </div>
 
+    <script>
+        // تشخیص هوشمند دستگاه
+        const mapUrl = "https://www.google.com/maps/d/viewer?mid=GAPGPTMASKTOKEN22lh4ci56kxX0X";
+        const intentUrl = "intent://www.google.com/maps/d/viewer?mid=GAPGPTMASKTOKEN22lh4ci56kxX0X#Intent;scheme=https;package=com.android.chrome;end";
+        
+        // اگر کاربر اندرویدی بود، لینک را تغییر بده
+        if (/Android/i.test(navigator.userAgent)) {
+            document.getElementById('mapLink').href = intentUrl;
+        }
+    </script>
 </body>
 </html>
